@@ -17,6 +17,8 @@ bool alternante(int x);
 //----------problema 8------------------
 
 void shopCompras();
+
+void perimetro();
 //----------------------------
 //----------------------------
 int main(int argc, char *argv[]) {
@@ -49,7 +51,8 @@ system("cls");
 	system("Pause");
 	system("cls");
 	//---------------------------------------------*/
-	shopCompras();
+//	shopCompras();
+	perimetro();
 	return 0;
 }
 void forma1(float prom){
@@ -202,3 +205,49 @@ return alterna;}
 		cout<<"costo de la tarjeta:" <<fixed<<setprecision(2)<<costo- (float)costo*descuento/100<<endl;
 	}
 	
+void perimetro(){
+	int tipo;
+	float perimetro;
+	cout<<"1 Equilatero"<<endl;
+	cout<<"2 isosceles"<<endl;
+	cout<<"3 Escaleno"<<endl;
+	cout<<"tipo: ";
+	cin>>tipo;
+	cout<<endl;
+	
+	int lado;
+	
+	switch(tipo){
+	case 1:
+	{
+		cout<<"lado: ";
+		cin>>lado;
+		perimetro=3*lado;
+		
+		break;
+	}
+	case 2:
+	{
+		cout<<"primero ingrese el lado distinto"<<endl;
+		cout<<"lado a: ";
+		cin>>lado;
+		perimetro+=lado;
+		cout<<"lado b: ";
+		cin>>lado;
+		perimetro+=2*lado;
+		break;
+	}
+	case 3:{
+		for(int i=0;i<3;i++){cout<<"lado: ";
+		cin>>lado;
+		perimetro+=lado;}
+		break;
+	}
+	default:
+	{cout<<"opcion incorrecta";
+	return;}
+		
+	}
+cout<<"perimetro: "<<perimetro;
+
+}
