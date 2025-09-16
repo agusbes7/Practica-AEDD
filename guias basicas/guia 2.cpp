@@ -8,8 +8,9 @@ void mostrar(int,int,int);
 void ejemplos(int ,int ,int );
 void operadorPrefijoPostfijo(int ,int ,int );
 void dobleAsignacion(int ,int ,int );
+void examen();
 int main(int argc, char *argv[]) {
-
+examen();
 //	guia2Porcentaje();
 	int a=2,b=1,c=3;
 	
@@ -17,11 +18,11 @@ int main(int argc, char *argv[]) {
 	cout<<"b:"<<b<<endl;
 	cout<<"c:"<<c<<endl;
 	cout<<"cambios en las variables solo dentro de la funcion son pasadas por copia"<<endl;
-	
-	ejemplos(a,b,c);
+	guia2Porcentaje();
+	/*ejemplos(a,b,c);
 	operadorPrefijoPostfijo(a,b,c);
 	dobleAsignacion(a,b,c);
-	
+	*/
 	
 
 	return 0;
@@ -34,12 +35,14 @@ void guia2Porcentaje(){
 	cin>>f;
 	cout<<endl<<"Ingrese el numero de hombres en el curso:";
 	cin>>m;
-	if(f!=0 or m!=0){
-	float Pmujeres=f*100/float(m+f);
-	cout<<"porcentaje de mujeres:"<<fixed<<setprecision(2)<<Pmujeres<<"%"<<endl;
-	cout<<"porcentaje de varones:"<<fixed<<setprecision(2)<<(float)100-Pmujeres<<"%"<<endl;}
-	else{cout<<"error no hay personas en el curso"<<endl;}
-	return;}
+	if(m<0 and f<0){
+		cout<<"error de ingreso o no hay personas en el curso"<<endl;}
+	else{
+		float aux=m*100/(float)(m+f);
+		cout<<"Porcentaje de varones en el curso"<< aux<<"<%"<<endl;
+		cout<<"Porcentaje de mujeres en el curso"<<100-aux<<" %"<<endl;
+	}
+}
 	//-----------------------------------------------------------
 	void mostrar(int a,int b,int c){
 		cout<<"a:"<<a<<endl;
@@ -66,3 +69,23 @@ void dobleAsignacion(int a,int b,int c){
 	cout<<"expresion a=b=a+3*c+50"<<endl;
 	a=b=a+3*c+50;
 mostrar(a,b,c);}
+void examen(){
+	int preguntas=0,correctas=0;
+		
+		cout<<"ingrese el numero total de preguntas: ";
+	cin>>preguntas;
+	cout<<"ingrese el numero respuestas correctas: ";
+	cin>>correctas;
+	if(correctas>preguntas or (preguntas<=0)){ cout<<"error datos incorrectos"<<endl;}
+	else{
+		float nivel= correctas*100/(float) preguntas;
+		cout<<"NIVEL ";
+	if(nivel>=90){cout<<"maximo"<<endl;}
+	else{
+		if(nivel<90 and nivel>=75){ cout<<"medio";}
+		else{
+			if(nivel<75 and nivel>=50){cout<<"regular";}
+			else{cout<<"fuera de nivel";}
+		}
+	}
+}}
