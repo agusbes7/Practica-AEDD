@@ -16,6 +16,11 @@ bool alternante(int );
 bool palindromo(int );
 void linea(int,char);
 void conversor(char );
+void intercambio(int& a,int& b){ int aux=a; a=b; b=aux;}
+int digitosP(int a);
+int sumatoria(int);
+void decimalbinario(int);
+void binariodecimal(int);
 int main(int argc, char *argv[]){
 /*cout<<"cifras2 con log"<<cifras2(12345);
 cout<<"exponente: "<<exponente(2,3);
@@ -35,9 +40,11 @@ cout<<"palindromo? 12 :"<<boolalpha<<palindromo(12)<<endl;
 cout<<"palindromo? 222 :"<<boolalpha<<palindromo(222)<<endl;
 */
 	
-	linea(10,'>');
-	conversor('a');
-	conversor('A');
+
+
+	cout<<"digitos pares: "<<digitosP(23456)<<endl;
+cout<<"sumatoria: "<<sumatoria(100);
+binariodecimal(11011);
 return 0;}
 	
 	int mayor(int x,int y ){ return (x>=y)? x:y;}
@@ -135,3 +142,26 @@ void conversor(char c){
 	if(aux>=97 and aux<=122){cout<<char(aux-32)<<endl;}
 	else{cout<<"no es una letra minuscula"<<endl;}}
 
+
+	int digitosP(int a){
+		if(a<10){
+			return ((a%2)==0)? 1:0;}
+		
+		else{
+						return digitosP(a/10)+ ((((a%10)%2)==0)? 1:0);
+		}
+	}
+int sumatoria(int a){
+	if(a==1){return 1;}
+	else{
+		return a+sumatoria(a-1);}
+	}
+void binariodecimal(int x){
+	int dig=cifras(x);
+	int y=x;
+	int sum=0;
+	for(int i=0;i<dig;i++){
+	sum+=(y%10)*exponente(2,i);
+	y/=10;}
+cout<<"numero: "<<sum<<endl;	
+}
