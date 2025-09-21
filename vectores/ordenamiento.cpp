@@ -18,22 +18,19 @@ void rotacionDer(int [],int);
 //---------------------------------
 void seleccionDirectaMam(int[],int);
 void seleccionDirectamaM(int[],int);
+void insercionDirectamaM(int[],int );
 int busquedaSecuencial(int [],int ,int );
 int busquedaBinaria(int [],int ,int );
+void burbujaMejorado(int[],int);
+void mergeSort(int [],int);
+void sort(int [],int,int);
+void merge(int [],int,int,int);
 int main(int argc, char *argv[]) {
 	int a[tam],tl=25;
 	cargarvectorrand(a,tl);
 	mostrar(a,tl);
-	seleccionDirectamaM(a,tl);
+mergeSort(a,tl);
 	mostrar(a,tl);
-	int aux;
-	cin>>aux;
-	int buscado=busquedaBinaria(a,tl,aux);
-	cout<<buscado<<endl;
-	if(buscado!=-1){
-	cout<<"el numoero buscado "<<a[buscado]<<" en la posicion "<<buscado<<endl;
-	}
-	
 	return 0;
 }
 
@@ -92,9 +89,11 @@ void seleccionDirectamaM(int a[],int tl){
 			if(a[men]>a[i]){men=i;}
 		}
 		intercambio(a[men],a[j]);}}
-void insercionDirectamaM(int a[],int tl){
+
+	void insercionDirectamaM(int a[],int tl){
 	for(int i=1;i<tl;i++){
-		for(int j=i;j>=0;j--){
+		for(int j=i;j>0;j--){
+			if(a[j]<a[j-1]){intercambio(a[j],a[j-1]);}
 		}}}
 int busquedaSecuencial(int a[],int tl,int elemento){
 			int b=-1,j=0;
@@ -120,4 +119,53 @@ int busquedaBinaria(int a[],int tl,int elemento){
 	else{
 		return -1;
 	}}
+	
+void burbujaMejorado(int a[],int tl){
+	int i=0;
+	bool bandera=true;
+	while(i<tl and bandera){
+bandera=false;
+		int j=0;
+		while(j<tl-i-1){
+			if(a[j]>a[j+1]){intercambio(a[j],a[j+1]);
+			bandera=true;}
+			j++;
+		
+	}
+		i++;
+	
+}}
+	void mergeSort(int a[],int tl){
+	int inicio=0,
+		fin=tl-1;
+	sort(a,inicio,fin);
+	}
+	void sort(int a[],int inicio,int fin){
+		if(fin<=inicio){
+			return ;}
+		else{
+			int mitad=(inicio+fin)/2;
+			sort(a,inicio,mitad);
+			sort(a,mitad+1,fin);
+			merge(a,inicio,mitad,fin);
+		}
+	}
+	void merge(int a[],int inicio,int mitad,int fin){
+		
+
+	int i=inicio,j=mitad+1,k=0;
+	int c[tam];
+	while(i<mitad and j<fin){
+		if(a[i]>=a[j]){ c[k]=a[j];
+		j++;}
+		else{
+			c[k]=a[i];
+			i++;}
+		k++;}
+	while(i<mitad){c[k++]=a[i++];}
+	while(j<fin){c[k++]=a[j++];}
+	for(int i=0;i<k;i++){
+		a[inicio+i]=c[i];}
+	
+	}
 	

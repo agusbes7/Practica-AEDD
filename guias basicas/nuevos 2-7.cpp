@@ -21,6 +21,8 @@ int digitosP(int a);
 int sumatoria(int);
 void decimalbinario(int);
 void binariodecimal(int);
+void kcuadrados(int );
+void ktriangulos(int );
 int main(int argc, char *argv[]){
 /*cout<<"cifras2 con log"<<cifras2(12345);
 cout<<"exponente: "<<exponente(2,3);
@@ -38,13 +40,12 @@ cout<<"palindromo? 123 :"<<boolalpha<<palindromo(123)<<endl;
 cout<<"palindromo? 121 :"<<boolalpha<<palindromo(121)<<endl;
 cout<<"palindromo? 12 :"<<boolalpha<<palindromo(12)<<endl;
 cout<<"palindromo? 222 :"<<boolalpha<<palindromo(222)<<endl;
-*/
-	
 
-
-	cout<<"digitos pares: "<<digitosP(23456)<<endl;
+/cout<<"digitos pares: "<<digitosP(23456)<<endl;
 cout<<"sumatoria: "<<sumatoria(100);
-binariodecimal(11011);
+binariodecimal(11011);*/
+	kcuadrados(5);
+	ktriangulos(5);
 return 0;}
 	
 	int mayor(int x,int y ){ return (x>=y)? x:y;}
@@ -165,3 +166,15 @@ void binariodecimal(int x){
 	y/=10;}
 cout<<"numero: "<<sum<<endl;	
 }
+void kcuadrados(int x){
+	for(int i=0;i<x;i++){
+		for(int j=0;j<x;j++) {  cout<<"*";}
+		cout<<endl;
+	}
+}
+	void ktriangulos(int x){
+		for(int i=0;i<x;i++) {
+			for(int j=x-1-i;j<x;j++) {cout<<"*";  }
+		cout<<endl;
+		}
+	}
