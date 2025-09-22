@@ -1,11 +1,12 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <iomanip>
 using namespace std;
 #define tam 50
 void cargarvector(int [][tam],int);
 void cargarvectorrand(int [][tam],int);
-void cargarvectorrand(int [][tam],int,int);
+void cargarvectorrand2(int [][tam],int,int);
 void mostrar(int [][tam],int);
 void mostrar(int [][tam],int,int);
 int sumaFila(int [][tam],int,int);
@@ -15,12 +16,36 @@ float promediofila(int [],int);
 float promediocolumna(int [][tam],int,int);
 void prueba();
 void problema2();
+void transpuesta(int [][tam],int&,int&);
+void intercambio(int &a,int&b){int aux=a; a=b; b=aux;}
 
 int main(int argc, char *argv[]) {
-problema2();
+int a[tam][tam],tlf=3,tlc=4;
+cargarvectorrand2(a,tlf,tlc);
+mostrar(a,tlf,tlc);
+cout<<setfill('-')<<setw(20)<<"-"<<endl;
+transpuesta(a,tlf,tlc);
+mostrar(a,tlf,tlc);
 	return 0;
 }
-
+void transpuesta(int a[][tam],int& tlf, int& tlc){
+if(tlf==tlc){
+	for(int i=0;i<tlc;i++) { 
+		for(int j=i+0;j<tlf;j++){
+			if(i!=j){
+			intercambio(a[i][j],a[j][i]);
+		}}
+	}
+}
+else{
+	for(int i=0;i<tlf;i++){
+		for(int j=i;j<tlc;j++){
+			intercambio(a[i][j],a[j][i]);
+		}
+	}
+	intercambio(tlf,tlc);
+	
+}}
 
 void mostrar( int a[][tam],int tl){
 	for(int i=0;i<tl;i++){
