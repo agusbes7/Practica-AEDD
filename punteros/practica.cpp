@@ -16,8 +16,8 @@ int main(int argc, char *argv[]) {
 	cout<<"punum: "<<*pnum<<endl;
 	num2=*pnum;
 	cout<<"Num2: "<<num2<<endl;
-	
-	
+	cout<<"pnum: "<<pnum<<endl;
+	cout<<"Num2: "<<&num2<<endl;
 	return 0;
 }
 
