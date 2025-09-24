@@ -14,6 +14,7 @@ void insercionOrdenada(ptr * L,int valor);
 void mostrarTodos(ptr L);
 void borraFinal(ptr *L);
 void borraInicio(ptr *L);
+void borrarL(ptr * L,int valor);
 int menor(ptr L);
 void imprimirInverso(ptr L);
 void borrarL(ptr *L);
@@ -23,10 +24,14 @@ int main(int argc, char *argv[]) {
 	ptr L=NULL, aux,nuevo;
 	agregarInicio(&L,8);
 	insercionOrdenada(&L,6);
+	mostrarTodos(L);
 	insercionOrdenada(&L,65);
-	insercionOrdenada(&L,4);
 	insercionOrdenada(&L,25);
+	mostrarTodos(L);
+	insercionOrdenada(&L,10);
+	mostrarTodos(L);
 	insercionOrdenada(&L,32);
+
 /*	agregarInicio(&L,5);
 	agregarFinal(&L,6);
 	agregarInicio(&L,3);
@@ -38,6 +43,8 @@ int main(int argc, char *argv[]) {
 	insercionOrdenada(&L,3);
 	borraFinal(&L);*/
 
+	mostrarTodos(L);
+	borrarL(&L,10);	
 	mostrarTodos(L);
 	cout<<"menor: "<<menor(L)<<endl;
 /*imprimirInverso(L);
@@ -115,12 +122,32 @@ void borrarL(ptr *L){
 		*L=aux;
 	}
 }
+	void borrarL(ptr *L, int valor){
+		ptr aux=*L;
+		if(aux->dato==valor){borraInicio(L);}
+		ptr anterior=aux,temporal;
+		while(aux!=NULL and aux->dato!=valor){
+			anterior=aux;
+			aux=aux->sig;}
+		
+			if(aux->dato==valor){
+				anterior->sig=aux->sig;
+				delete aux;
+				aux=NULL;}
+			else{cout<<"no existe el dato";}
+				
+			}
+		
+		
+		
+		
+	
 void insercionOrdenada(ptr *L,int valor){
 	ptr aux=*L;
 	ptr anterior=aux,tmpr;
 	if(aux->dato>=valor){
 	agregarInicio(&(*L),valor);
-		}
+		return;}
 	
 
 	int insercion=-1;
